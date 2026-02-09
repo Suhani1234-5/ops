@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: autoops-db
+    restart: always
+    environment:
+      POSTGRES_USER: autoops
+      POSTGRES_PASSWORD: autoops
+      POSTGRES_DB: autoops
+    ports:
+      - "5432:5432"
+    volumes:
+      - autoops_pg:/var/lib/postgresql/data
+
+volumes:
+  autoops_pg:
